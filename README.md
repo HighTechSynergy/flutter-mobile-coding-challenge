@@ -1,16 +1,68 @@
-# hts_test_app
+# High-Tech Synergy Mobile(Flutter) Take-home Exercise
 
-A new Flutter application.
+Hi there! Here is a coding exercise to help us assess your technical skills.
+Please plan to spend no more than 8 hours on this. We understand we may not be
+the only company asking for an exercise from you and want to be respectful of
+your time. We recommend you focus on the core
+requirements first, then work on any additional features if you have the time.
 
-## Getting Started
+By 8 hours in, please feel free to stop working and explain what refactors /
+code organization / enhancements you would have made with more time in the
+MYSOLUTION.md file.
 
-This project is a starting point for a Flutter application.
+If you have any questions at any point, please reach us on email.
 
-A few resources to get you started if this is your first Flutter project:
+## Submission
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Please **fork** this repository and commit all your changes to it.
+When you're done, send us the email with your Github repository URL.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Overview
+
+We’ve built a simple Autocomplete/Typeahead component in flutter that
+lets you type in a query and shows a list of matching results in a dropdown.
+
+To see this component in action, let's set up the repo:
+
+1. Run `flutter pub get`
+2. Run `flutter run`
+
+Type "new" in the input, and you'll get a list of matching US states that start
+with "new".
+
+## Task
+
+Currently, the component can only query against a static data array. Your task is to:
+
+1. Enhance the component so that it also accepts an HTTP endpoint as data source.
+
+    For example, if you wire up the component to
+    `https://api.github.com/search/users?q={query}&per_page={numOfResults}`,
+    and if you type `foo` in the input, the component dropdown should show
+    Github users with logins that start with `foo`. When you select a user from
+    the results, `item` in the `onSelect(item)` callback should be the selected
+    Github user's id.
+
+    (The enhanced initialised component only needs to work with either a data array or a
+    HTTP source, not both at the same time.)
+
+2. Implement keyboard shortcuts to navigate the results dropdown using up/down
+   arrow keys and to select a result using the Enter key.
+
+3. When item in dropdown is selected by mouse click or Enter key, show the selected item in a
+search field (same as Google is doing it).
+
+Modify the relevant sections in `lib/ui/screens/dropdwon_local_test/dropdown_local_screen` to implement a
+demo that looks like this:
+
+![Demo example screenshot](https://github.com/HighTechSynergy/javascript-frontend-coding-challenge/blob/master/demo-example.png)
+
+## Requirements
+
+- The component should be reusable. It should be possible to have multiple
+  instances of the component on the same page.
+- The "States" example that uses a Map should be enhanced with your code and continue to work.
+- Your component should work correctly in an emulator or your mobile device atleast.
+- You don't need to preserve any of the existing code; feel free to modify them
+  as you wish.
+- New APIs and your notes should be documented in `MYSOLUTION.md`.
